@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteRule  ^$ ppa2-server/    [L]
+	RewriteRule  (.*) ppa2-server/$1 [L]
+</IfModule>
