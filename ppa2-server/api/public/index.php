@@ -38,25 +38,13 @@ try {
 				'className' => 'Multiple\Frontend\Module',
 				'path'      => '../app/frontend/Module.php',
 			),
-			'methodist' => array(
-				'className' => 'Multiple\Methodist\Module',
-				'path'      => '../app/methodist/Module.php',
-			),
-			'student'   => array(
-				'className' => 'Multiple\Student\Module',
-				'path'      => '../app/student/Module.php',
-			),
-			'crud'      => array(
-				'className' => 'Multiple\Crud\Module',
-				'path'      => '../app/crud/Module.php',
-			),
 			'ppa'      => array(
 				'className' => 'Multiple\PPA\Module',
 				'path'      => '../app/ppa/Module.php',
 			),
-			'reports'  => array(
-				'className' => 'Multiple\Reports\Module',
-				'path'      => '../app/reports/Module.php',
+			'ppa2'      => array(
+				'className' => 'Multiple\PPA2\Module',
+				'path'      => '../app/ppa2/Module.php',
 			)
 		)
 	);

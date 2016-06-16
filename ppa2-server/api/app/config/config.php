@@ -19,6 +19,7 @@ return new \Phalcon\Config(array(
 		'libDir'         => __DIR__ . '/../../app/lib/',
 		'cacheDir'       => __DIR__ . '/../../app/cache/',
 		'servicesDir'    => __DIR__ . '/../../app/services/',
+		'ppa2Dir'    => __DIR__ . '/../../../../src/',
 		'baseUri'        => '/api',
 		'publicUrl'      => ''
 	)

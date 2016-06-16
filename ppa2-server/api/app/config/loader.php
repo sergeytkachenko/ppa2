@@ -5,7 +5,8 @@ $loader = new \Phalcon\Loader();
 $loader->registerNamespaces(
 	array(
 		'Phalcon\Di\Service' => $config->application->servicesDir,
-		'Lib' => $config->application->libDir
+		'Lib' => $config->application->libDir,
+		'PhalconPPA' => $config->application->ppa2Dir
 	)
 );
 $loader->registerDirs(

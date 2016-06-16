@@ -75,7 +75,11 @@ $di->set('router', function () {
 		'controller' => 'base',
 		'action'     => 'crud'
 	));
-
+	$router->add("/ppa2/[a-zA-Z0-9/]+", array(
+		'module'     => 'ppa2',
+		'controller' => 'base',
+		'action'     => 'crud'
+	));
 	return $router;
 });
 

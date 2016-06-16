@@ -2,7 +2,6 @@
 
 use Phalcon\Di;
 use Phalcon\Di\FactoryDefault;
-use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 use Phalcon\Test\UnitTestCase as PhalconTestCase;
 
 abstract class UnitTestCase extends PhalconTestCase
@@ -28,15 +27,7 @@ abstract class UnitTestCase extends PhalconTestCase
 
 		$di = new FactoryDefault();
 		Di::reset();
-		$di->set('db', function () {
-			return new DbAdapter(array(
-				'host'     => 'localhost',
-				'username' => 'root',
-				'password' => '1665017',
-				'dbname'   => 'phalcon-ppa',
-				"charset"  => 'utf8'
-			));
-		});
+
 		Di::setDefault($di);
 
 		$this->setDi($di);
