@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+	<changeSet author="Nargott" id="sp1-sp4-tables-1">
+		<createTable tableName="activities">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="title" type="VARCHAR(255)"/>
+			<column name="parent" type="INT"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-2">
+	<createTable tableName="activities_methodists">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="activity_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="user_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-3">
+	<createTable tableName="activities_target_groups">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="activity_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="target_group_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-4">
+	<createTable tableName="brands">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)"/>
+		<column name="alias" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-5">
+	<createTable tableName="brands_methodists">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="brand_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="user_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-6">
+	<createTable tableName="brands_target_groups">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="brand_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="target_group_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-7">
+	<createTable tableName="cities">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="name" type="VARCHAR(255)">
+			<constraints nullable="false"/>
+		</column>
+		<column name="phone_code" type="VARCHAR(45)"/>
+		<column name="region_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-8">
+	<createTable tableName="company">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-9">
+	<createTable tableName="config">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="key" type="VARCHAR(255)">
+			<constraints nullable="false"/>
+		</column>
+		<column name="value" type="TEXT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="description" type="TINYTEXT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-10">
+	<createTable tableName="countries">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)">
+			<constraints nullable="false"/>
+		</column>
+		<column name="language" type="VARCHAR(5)">
+			<constraints nullable="false"/>
+		</column>
+		<column name="timezone" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-11">
+	<createTable tableName="courses">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="created" type="datetime"/>
+		<column name="code" type="VARCHAR(45)"/>
+		<column name="title_ru" type="VARCHAR(255)"/>
+		<column name="preview_picture" type="INT"/>
+		<column name="preview_text" type="LONGTEXT"/>
+		<column name="description" type="LONGTEXT"/>
+		<column name="active_from" type="datetime"/>
+		<column name="active_to" type="datetime"/>
+		<column defaultValueNumeric="1" name="is_active" type="INT"/>
+		<column name="title_ua" type="VARCHAR(255)"/>
+		<column name="title_en" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-12">
+	<createTable tableName="courses_activities">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="activity_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="course_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-13">
+	<createTable tableName="courses_brands">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="brand_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="course_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-14">
+	<createTable tableName="currency_types">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)"/>
+		<column name="alias" type="VARCHAR(255)"/>
+		<column name="code" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-15">
+	<createTable tableName="dealer_statuses">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(45)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-16">
+	<createTable tableName="dealers">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)"/>
+		<column name="daimler_code" type="VARCHAR(255)"/>
+		<column name="city_id" type="INT"/>
+		<column name="address" type="VARCHAR(255)"/>
+		<column name="parent_id" type="INT"/>
+		<column name="stafflist_group_id" type="INT"/>
+		<column name="status" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-17">
+	<createTable tableName="dealers_activities">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="activity_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="dealer_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-18">
+	<createTable tableName="dealers_brands">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="brand_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="dealer_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-19">
+	<createTable tableName="dealers_controllers">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="dealer_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="user_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-20">
+	<createTable tableName="educations">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)"/>
+		<column name="parent_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-21">
+	<createTable tableName="equipments">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-22">
+	<createTable tableName="estimation_methods">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)">
+			<constraints nullable="false"/>
+		</column>
+		<column name="description" type="TEXT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-23">
+	<createTable tableName="feedback">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="user_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="date" type="datetime">
+			<constraints nullable="false"/>
+		</column>
+		<column name="img" type="LONGTEXT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="note" type="TEXT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="html" type="TEXT"/>
+		<column name="browser" type="TEXT"/>
+		<column name="url" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-24">
+	<createTable tableName="groups">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)"/>
+		<column name="alias" type="VARCHAR(255)"/>
+		<column name="default_state" type="VARCHAR(255)"/>
+		<column name="is_auth_possible" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-25">
+	<createTable tableName="posts">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title_ru" type="VARCHAR(255)"/>
+		<column name="alias" type="VARCHAR(255)"/>
+		<column name="title_en" type="VARCHAR(255)"/>
+		<column name="title_ua" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-26">
+	<createTable tableName="posts_target_groups">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="post_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="target_group_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-27">
+	<createTable tableName="programs">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title_ru" type="VARCHAR(255)"/>
+		<column name="title_ua" type="VARCHAR(255)"/>
+		<column name="title_en" type="VARCHAR(255)"/>
+		<column name="description_ru" type="TEXT"/>
+		<column name="description_ua" type="TEXT"/>
+		<column name="description_en" type="TEXT"/>
+		<column defaultValueNumeric="1" name="is_active" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-28">
+	<createTable tableName="programs_topics">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="program_id" type="INT"/>
+		<column name="topic_id" type="INT"/>
+		<column defaultValueNumeric="0" name="sort" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-29">
+	<createTable tableName="qualification_levels">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title_ru" type="VARCHAR(255)"/>
+		<column name="title_ua" type="VARCHAR(255)"/>
+		<column name="title_en" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-30">
+	<createTable tableName="regions">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="name" type="VARCHAR(255)">
+			<constraints nullable="false"/>
+		</column>
+		<column name="country_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-31">
+	<createTable tableName="stafflist">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="post" type="INT"/>
+		<column name="stafflist_group" type="INT"/>
+		<column name="parent" type="INT"/>
+		<column name="department_title" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-32">
+	<createTable tableName="stafflist_group">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-33">
+	<createTable tableName="stafflist_post_plan">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="stafflist" type="INT"/>
+		<column name="dealer" type="INT"/>
+		<column name="activity" type="INT"/>
+		<column name="brand" type="INT"/>
+		<column name="post_plan_count" type="INT"/>
+		<column name="post_plan_total_count" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-34">
+	<createTable tableName="study_classes">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)">
+			<constraints nullable="false"/>
+		</column>
+		<column name="description" type="TEXT"/>
+		<column name="city_id" type="INT"/>
+		<column name="address" type="VARCHAR(255)"/>
+		<column name="phone" type="VARCHAR(255)"/>
+		<column name="capacity" type="INT"/>
+		<column name="contact_email" type="VARCHAR(255)"/>
+		<column name="contact_name" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-35">
+	<createTable tableName="study_classes_equipments">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="study_class_id" type="INT"/>
+		<column name="equipment_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-36">
+	<createTable tableName="study_plan">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title_ru" type="VARCHAR(255)"/>
+		<column name="title_ua" type="VARCHAR(255)"/>
+		<column name="title_en" type="VARCHAR(255)"/>
+		<column name="description_ru" type="TEXT"/>
+		<column name="description_ua" type="TEXT"/>
+		<column name="description_en" type="TEXT"/>
+		<column name="date_start" type="datetime"/>
+		<column name="date_end" type="datetime"/>
+		<column defaultValueNumeric="1" name="is_active" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-37">
+	<createTable tableName="study_plan_programs">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="study_plan_id" type="INT"/>
+		<column name="program_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-38">
+	<createTable tableName="study_plan_topics">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="study_plan_id" type="INT"/>
+		<column name="topic_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-39">
+	<createTable tableName="target_groups">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-40">
+	<createTable tableName="topics">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title_ru" type="VARCHAR(255)"/>
+		<column name="title_ua" type="VARCHAR(255)"/>
+		<column name="title_en" type="VARCHAR(255)"/>
+		<column name="code" type="VARCHAR(50)"/>
+		<column name="description_en" type="TEXT"/>
+		<column name="description_ru" type="TEXT"/>
+		<column name="description_ua" type="TEXT"/>
+		<column name="parent_id" type="INT"/>
+		<column name="topic_type_id" type="INT"/>
+		<column name="price_eur" type="DECIMAL(11, 2)"/>
+		<column name="price_uah" type="DECIMAL(11, 2)"/>
+		<column name="recommend_long" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-41">
+	<createTable tableName="topics_estimation_methods">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="topic_id" type="INT"/>
+		<column name="estimation_method_id" type="INT"/>
+		<column defaultValueNumeric="1" name="max_mark" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="pass_mark" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-42">
+	<createTable tableName="topics_marks">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="topic_id" type="INT"/>
+		<column name="user_id" type="INT"/>
+		<column name="mark" type="INT"/>
+		<column defaultValueNumeric="0" name="result" type="INT"/>
+		<column name="mark_date" type="date"/>
+		<column defaultValueNumeric="0" name="is_confirmed" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-43">
+	<createTable tableName="topics_recommended_periods">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="topic_id" type="INT"/>
+		<column name="date_begin" type="datetime"/>
+		<column name="date_end" type="datetime"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-44">
+	<createTable tableName="topics_train">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="topic_id" type="INT"/>
+		<column defaultValueNumeric="1" name="is_must" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-45">
+	<createTable tableName="topics_train_activity">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="topic_train_id" type="INT"/>
+		<column name="activity_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-46">
+	<createTable tableName="topics_train_brands">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="topic_train_id" type="INT"/>
+		<column name="brand_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-47">
+	<createTable tableName="topics_train_posts">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="topic_train_id" type="INT"/>
+		<column name="post_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-48">
+	<createTable tableName="topics_train_qualification_levels">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="topic_train_id" type="INT"/>
+		<column name="qualification_level_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-49">
+	<createTable tableName="topics_types">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title" type="VARCHAR(255)">
+			<constraints nullable="false"/>
+		</column>
+		<column name="alias" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-50">
+	<createTable tableName="trainings">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="created" type="datetime"/>
+		<column defaultValueNumeric="0" name="is_active" type="INT"/>
+		<column name="topic_id" type="INT"/>
+		<column defaultValueNumeric="0" name="capacity" type="INT"/>
+		<column name="code" type="VARCHAR(45)"/>
+		<column name="title" type="VARCHAR(255)"/>
+		<column name="preview_picture" type="INT"/>
+		<column name="preview_text" type="LONGTEXT"/>
+		<column name="description" type="LONGTEXT"/>
+		<column name="date_start" type="datetime"/>
+		<column name="date_end" type="datetime"/>
+		<column name="length_days" type="DECIMAL(5, 1)"/>
+		<column name="price" type="DECIMAL(15, 2)"/>
+		<column name="currency_id" type="INT"/>
+		<column name="trainer_id" type="INT"/>
+		<column name="date_reg_end" type="datetime"/>
+		<column name="date_reg_start" type="datetime"/>
+		<column name="study_class_id" type="INT"/>
+		<column name="price_eur" type="DECIMAL(11, 2)"/>
+		<column name="price_uah" type="DECIMAL(11, 2)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-51">
+	<createTable tableName="trainings_estimation_methods">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="training_id" type="INT"/>
+		<column name="estimation_method_id" type="INT"/>
+		<column defaultValueNumeric="1" name="max_mark" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="pass_mark" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-52">
+	<createTable tableName="trainings_marks">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="training_id" type="INT"/>
+		<column name="user_id" type="INT"/>
+		<column name="mark" type="INT"/>
+		<column name="estimation_method_id" type="INT"/>
+		<column name="note" type="TEXT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-53">
+	<createTable tableName="trainings_users">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="training_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="user_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="price" type="DECIMAL(10, 2)"/>
+		<column name="discount" type="INT"/>
+		<column name="payer_id" type="INT"/>
+		<column defaultValueNumeric="0" name="is_confirmed" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="is_passed" type="INT"/>
+		<column name="general_mark" type="INT"/>
+		<column name="length_days" type="DECIMAL(5, 1)"/>
+		<column name="to_pay" type="DECIMAL(10, 2)"/>
+		<column name="currency_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-54">
+	<createTable tableName="translations">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="key" type="VARCHAR(255)">
+			<constraints nullable="false"/>
+		</column>
+		<column name="ru" type="TINYTEXT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="ua" type="TINYTEXT"/>
+		<column name="en" type="TINYTEXT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-55">
+	<createTable tableName="user_authorization">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="user_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="token" type="VARCHAR(45)">
+			<constraints nullable="false"/>
+		</column>
+		<column name="last_time" type="datetime">
+			<constraints nullable="false"/>
+		</column>
+		<column name="expired_time" type="datetime">
+			<constraints nullable="false"/>
+		</column>
+		<column name="user_agent" type="VARCHAR(255)"/>
+		<column name="user_ip" type="VARCHAR(11)">
+			<constraints nullable="false"/>
+		</column>
+		<column name="user_os" type="VARCHAR(255)"/>
+		<column name="session_id" type="VARCHAR(255)">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-56">
+	<createTable tableName="users">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="ind_code" type="VARCHAR(25)"/>
+		<column name="login" type="VARCHAR(45)"/>
+		<column name="password" type="VARCHAR(255)"/>
+		<column name="salt" type="VARCHAR(10)"/>
+		<column name="name" type="VARCHAR(255)"/>
+		<column name="last_name" type="VARCHAR(255)"/>
+		<column name="second_name" type="VARCHAR(255)"/>
+		<column name="email" type="VARCHAR(45)"/>
+		<column name="date_registration" type="timestamp"/>
+		<column name="birthday" type="date"/>
+		<column name="phome" type="VARCHAR(45)"/>
+		<column name="pmobile" type="VARCHAR(45)"/>
+		<column name="address_home" type="VARCHAR(255)"/>
+		<column name="photo_src" type="VARCHAR(255)"/>
+		<column defaultValueNumeric="0" name="is_in_third_system" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="third_system_id" type="VARCHAR(255)"/>
+		<column defaultValueNumeric="1" name="is_male" type="INT"/>
+		<column defaultValueNumeric="1" name="is_active" type="INT"/>
+		<column name="status_id" type="INT"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-57">
+	<createTable tableName="users_certifications">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="user_id" type="INT"/>
+		<column name="course_id" type="INT"/>
+		<column name="date" type="datetime">
+			<constraints nullable="false"/>
+		</column>
+		<column name="mark" type="TINYINT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="mark_max" type="TINYINT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="mark_percent" type="DOUBLE"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-58">
+	<createTable tableName="users_educations">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="user_id" type="INT"/>
+		<column name="education_id" type="INT"/>
+		<column name="institution" type="VARCHAR(255)"/>
+		<column name="diploma_number" type="VARCHAR(45)"/>
+		<column name="diploma_date" type="date"/>
+		<column name="speciality" type="VARCHAR(255)"/>
+		<column name="qualify" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-59">
+	<createTable tableName="users_groups">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="user_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="group_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-60">
+	<createTable tableName="users_posts">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="user_id" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="rate" type="DOUBLE"/>
+		<column name="post_id" type="INT"/>
+		<column name="dealer_id" type="INT"/>
+		<column name="qualification_level_id" type="INT"/>
+		<column name="actual_position" type="VARCHAR(255)"/>
+		<column name="appoint_date" type="date"/>
+		<column name="activity_id" type="INT"/>
+		<column name="brand_id" type="INT"/>
+		<column defaultValueNumeric="0" name="is_main" type="INT">
+			<constraints nullable="false"/>
+		</column>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-61">
+	<createTable tableName="users_statuses">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="title_ru" type="VARCHAR(255)"/>
+		<column name="title_ua" type="VARCHAR(255)"/>
+		<column name="title_en" type="VARCHAR(255)"/>
+		<column defaultValueNumeric="1" name="is_active" type="INT">
+			<constraints nullable="false"/>
+		</column>
+		<column name="alias" type="VARCHAR(255)"/>
+	</createTable>
+	</changeSet>
+	<changeSet author="Nargott" id="sp1-sp4-tables-62">
+	<createTable tableName="users_work_experience">
+		<column autoIncrement="true" name="id" type="INT">
+			<constraints primaryKey="true"/>
+		</column>
+		<column name="user_id" type="INT"/>
+		<column name="company_name" type="VARCHAR(255)"/>
+		<column name="position" type="VARCHAR(255)"/>
+		<column name="date_start" type="date"/>
+		<column name="date_end" type="date"/>
+	</createTable>
+	</changeSet>
+</databaseChangeLog>
