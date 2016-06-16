@@ -21,7 +21,7 @@ return new \Phalcon\Config(array(
 		'servicesDir'    => __DIR__ . '/../../app/services/',
 		'ppa2Dir'    => __DIR__ . '/../../../../src/',
 		'baseUri'        => '/api',
-		'publicUrl'      => ''
+		'publicUrl'      => 'http://ppa-server'
 	)
 ));
 

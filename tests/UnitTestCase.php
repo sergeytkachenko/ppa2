@@ -2,6 +2,7 @@
 
 use Phalcon\Di;
 use Phalcon\Di\FactoryDefault;
+use Phalcon\Http\Client\Request;
 use Phalcon\Test\UnitTestCase as PhalconTestCase;
 
 abstract class UnitTestCase extends PhalconTestCase
@@ -20,10 +21,18 @@ abstract class UnitTestCase extends PhalconTestCase
 	 * @var bool
 	 */
 	private $_loaded = false;
+	/**
+	 * @var \Phalcon\Http\Client\Provider\Curl
+	 */
+	protected $provider;
+
+	protected $baseUri = 'http://ppa-server/api/ppa2';
 
 	public function setUp()
 	{
 		parent::setUp();
+
+		$this->provider = Request::getProvider();
 
 		$di = new FactoryDefault();
 		Di::reset();
